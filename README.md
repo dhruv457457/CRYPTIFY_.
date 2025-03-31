@@ -121,7 +121,7 @@ Using **MetaMask SDK**, wallet connections are automated, ensuring a secure and 
 
 ### Installation & Setup  
 ```sh
-git clone [https://github.com/dhruv457457/EduChain_Web-3-Project.git](https://github.com/dhruv457457/Cryptify.git)
+git clone https://github.com/dhruv457457/Cryptify.git
 cd Cryptify-main
 cd frontend
 npm install
@@ -156,7 +156,7 @@ This address is responsible for all fund transfer operations on the Cryptify pla
 
 This address hosts the Cryptify smart contracts, which are SWC-compliant for enhanced security.
 
-**Username Registry Address:**
+**Username Registry Address:** 
 - 0x0f87ea1419E33c57D5106762F34C971561A1162a
 
 This contract is used for managing and registering usernames within the Cryptify platform.
@@ -178,7 +178,7 @@ For any inquiries, support, or collaboration opportunities, feel free to reach o
 
 ## 🐦 Follow us on X (Twitter): [@CryptifySecure](https://x.com/CryptifySecure)
 
-## 🌎 Website: [Cryptify](https://cryptify-defi.vercel.app/)
+## 🌎 Website: [Cryptify](https://cryptify-ecru.vercel.app/)
 
 🚀 Join our Web3 revolution!
 

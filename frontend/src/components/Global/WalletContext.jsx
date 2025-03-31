@@ -21,13 +21,33 @@ export const WalletProvider = ({ children }) => {
         const accounts = await ethProvider.send("eth_accounts", []);
         if (accounts.length > 0) {
           setWalletData({ address: accounts[0], provider: ethProvider });
-          // console.log("Wallet initialized:", { address: accounts[0], provider: ethProvider });
+          const network = await ethProvider.getNetwork();
+          if (network.chainId.toString() !== "59141") {
+            console.warn("Connected to wrong network. Please switch to Linea Sepolia (59141).");
+          }
         }
       } catch (err) {
         console.error("WalletProvider initialization failed:", err);
       }
     };
     initializeProvider();
+
+    const sdkProvider = MMSDK.getProvider();
+    if (sdkProvider && typeof sdkProvider.on === "function") {
+      const handleChainChanged = (chainId) => {
+        if (chainId !== "0xe4e5") { // Linea Sepolia in hex
+          console.warn("Chain changed to incorrect network:", chainId);
+        } else {
+          console.log("Connected to Linea Sepolia");
+        }
+      };
+      sdkProvider.on("chainChanged", handleChainChanged);
+      return () => {
+        if (sdkProvider && typeof sdkProvider.removeListener === "function") {
+          sdkProvider.removeListener("chainChanged", handleChainChanged);
+        }
+      };
+    }
   }, []);
 
   return (

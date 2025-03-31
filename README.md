@@ -38,7 +38,6 @@ Cryptify redefines Web3 payments by integrating MetaMask SDK for effortless wall
 - Username-Based Transactions – No more confusing wallet addresses  
 - MetaMask SDK Integration – Secure & seamless wallet authentication  
 
----
 
 ## 🚀 Why MetaMask SDK Over window.ethereum?  
 Using MetaMask SDK instead of `window.ethereum` unlocks next-level security and user experience:  
@@ -49,7 +48,6 @@ Using MetaMask SDK instead of `window.ethereum` unlocks next-level security and 
 
 With MetaMask SDK, we’ve completely solved wallet connection issues!  
 
----
 
 ## 💳 On-Chain Credit Score System  
 Similar to traditional credit scores, Cryptify assigns a trust score based on:  
@@ -63,7 +61,6 @@ Similar to traditional credit scores, Cryptify assigns a trust score based on:
 - Decentralized Trust Layer – Builds a reputation system in Web3  
 - Transparent & Fair – Scores are publicly verifiable on-chain
   
----
 
 ## 🧠 AI Chatbot – Your Personal Web3 Assistant!
 Need help? Don’t worry—Cryptify’s built-in AI chatbot is here! 🚀

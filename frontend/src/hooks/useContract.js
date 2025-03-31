@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import FundTransferWithRegistryABI from "../contracts/FundTransferWithRegistry.json";
 
-const FUND_TRANSFER_ADDRESS = "0x31bCF4cC0c6c7F13Ab92260FAdc8BCeFFBfEef5c";
+const FUND_TRANSFER_ADDRESS = "0xf5646e10B042567d23753D587DDa16dc6E4061Ab";
 
 const useContract = (provider) => {
   const [userAddress, setUserAddress] = useState("");
@@ -28,7 +28,6 @@ const useContract = (provider) => {
     };
     fetchAccount();
 
-    // Setup event listeners
     const contract = getContract();
     if (contract) {
       contract.then((c) => {
@@ -137,9 +136,9 @@ const useContract = (provider) => {
       const contract = await getContract();
       const amountInWei = ethers.parseEther(amount.toString());
       const tx = await contract.depositFunds({ value: amountInWei });
-      await tx.wait();
+      // Return TransactionResponse, don't wait here
       fetchPendingBalance(userAddress);
-      return tx.hash;
+      return tx; // Return the TransactionResponse object
     } catch (error) {
       console.error("Error depositing funds:", error);
       throw error.message || "Failed to deposit funds";
@@ -155,10 +154,10 @@ const useContract = (provider) => {
       const contract = await getContract();
       const amountInWei = ethers.parseEther(amount.toString());
       const tx = await contract.sendFunds(receiverUsername, message, { value: amountInWei });
-      await tx.wait();
+      // Return TransactionResponse, don't wait here
       fetchUserTransactions(userAddress);
       fetchPendingBalance(userAddress);
-      return tx.hash;
+      return tx; // Return the TransactionResponse object
     } catch (error) {
       console.error("Error sending funds:", error);
       throw error.message || "Failed to send funds";
@@ -174,10 +173,10 @@ const useContract = (provider) => {
       const contract = await getContract();
       const amountInWei = ethers.parseEther(amount.toString());
       const tx = await contract.sendFundsToAddress(receiverAddress, message, { value: amountInWei });
-      await tx.wait();
+      // Return TransactionResponse, don't wait here
       fetchUserTransactions(userAddress);
       fetchPendingBalance(userAddress);
-      return tx.hash;
+      return tx; // Return the TransactionResponse object
     } catch (error) {
       console.error("Error sending funds to address:", error);
       throw error.message || "Failed to send funds to address";
@@ -192,10 +191,10 @@ const useContract = (provider) => {
     try {
       const contract = await getContract();
       const tx = await contract.claimFunds();
-      await tx.wait();
+      // Return TransactionResponse, don't wait here
       fetchUserTransactions(userAddress);
       fetchPendingBalance(userAddress);
-      return tx.hash;
+      return tx; // Return the TransactionResponse object
     } catch (error) {
       console.error("Error claiming funds:", error);
       throw error.message || "Failed to claim funds";

@@ -31,13 +31,11 @@ function Navbar() {
     const initializeProvider = async () => {
       try {
         const sdkProvider = MMSDK.getProvider();
-        // console.log("SDK Provider:", sdkProvider); // Debug
         if (!sdkProvider) throw new Error("MetaMask SDK provider not initialized");
         const ethProvider = new ethers.BrowserProvider(sdkProvider);
         const accounts = await ethProvider.send("eth_accounts", []);
         if (accounts.length > 0) {
           setWalletData({ address: accounts[0], provider: ethProvider });
-          // console.log("Initial walletData:", { address: accounts[0], provider: ethProvider });
         }
       } catch (err) {
         setError("Failed to initialize provider: " + err.message);
@@ -79,8 +77,7 @@ function Navbar() {
     try {
       const network = await walletData.provider.getNetwork();
       const chainId = network.chainId.toString();
-      // console.log("Current Chain ID:", chainId); // Debug
-      if (chainId !== "656476") { // EDU Chain Sepolia
+      if (chainId !== "59141") { // Linea Sepolia
         showCustomAlert();
         return false;
       }
@@ -93,9 +90,7 @@ function Navbar() {
 
   const connectWallet = async () => {
     try {
-      // console.log("Connecting to MetaMask..."); // Debug
       const accounts = await MMSDK.connect();
-      // console.log("Connected accounts:", accounts); // Debug
       if (!accounts || accounts.length === 0) throw new Error("No accounts returned");
       const sdkProvider = MMSDK.getProvider();
       if (!sdkProvider) throw new Error("Provider not available after connection");
@@ -103,7 +98,7 @@ function Navbar() {
       setWalletData({ address: accounts[0], provider: ethProvider });
       localStorage.setItem("walletAddress", accounts[0]);
       const isCorrectChain = await checkChainId();
-      if (!isCorrectChain) console.log("Not connected to EDU Chain");
+      if (!isCorrectChain) console.log("Not connected to Linea Sepolia");
     } catch (error) {
       console.error("Wallet connection failed:", error);
       setError("Failed to connect wallet. Please ensure MetaMask is installed and unlocked.");
@@ -132,8 +127,7 @@ function Navbar() {
     const sdkProvider = MMSDK.getProvider();
     if (sdkProvider && typeof sdkProvider.on === "function") {
       const handleChainChanged = (chainId) => {
-        // console.log("Chain changed to:", chainId); // Debug
-        if (chainId !== "0xa045c") { // EDU Chain Sepolia in hex
+        if (chainId !== "0xe4e5") { // Linea Sepolia in hex (59141)
           showCustomAlert();
         } else {
           setShowAlert(false);
@@ -161,11 +155,10 @@ function Navbar() {
     );
   }
 
-  // Rest of your JSX remains unchanged...
   return (
     <>
       {showAlert && (
-        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 w-11/12 md:w-auto ">
+        <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 w-11/12 md:w-auto">
           <div className="bg-customDarkpurple border-2 border-customPurple rounded-lg shadow-lg px-6 py-4 flex flex-col md:flex-row items-center gap-4 backdrop-blur-sm bg-opacity-95 animate-fadeIn">
             <FaExclamationTriangle className="text-yellow-300 text-3xl flex-shrink-0" />
             <div className="flex-1 text-center md:text-left">
@@ -173,14 +166,14 @@ function Navbar() {
                 Wrong Network Detected
               </h3>
               <p className="text-customGray text-sm mb-3">
-                Please connect to OpenCampus Codex Sepolia (EDU Chain).
+                Please connect to Linea Sepolia.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
                 <button
                   onClick={goToDocs}
                   className="bg-gradient-to-r from-customPurple to-customBlue py-2 px-4 rounded-md text-white font-medium hover:opacity-90 transition-all"
                 >
-                  Add EDU Chain
+                  Add Linea Sepolia
                 </button>
                 <button
                   onClick={() => setShowAlert(false)}

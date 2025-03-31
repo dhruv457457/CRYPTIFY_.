@@ -147,17 +147,17 @@ Contributions are welcome! Feel free to open issues, submit PRs, and help improv
 Below are the key contract addresses used in the Cryptify platform:
 
 **Fund Transfer Address:**
-0xf5646e10B042567d23753D587DDa16dc6E4061Ab
+- 0xf5646e10B042567d23753D587DDa16dc6E4061Ab
 
 This address is responsible for all fund transfer operations on the Cryptify platform.
 
 **Cryptify SWC Address:**
-0xfA6272595Eb32b1Fe6A6AbB6D74D1B1C49502913
+- 0xfA6272595Eb32b1Fe6A6AbB6D74D1B1C49502913
 
 This address hosts the Cryptify smart contracts, which are SWC-compliant for enhanced security.
 
 **Username Registry Address:**
-0x0f87ea1419E33c57D5106762F34C971561A1162a
+- 0x0f87ea1419E33c57D5106762F34C971561A1162a
 
 This contract is used for managing and registering usernames within the Cryptify platform.
 

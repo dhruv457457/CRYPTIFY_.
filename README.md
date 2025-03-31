@@ -62,7 +62,7 @@ Similar to traditional credit scores, Cryptify assigns a trust score based on:
 - Transparent & Fair – Scores are publicly verifiable on-chain
   
 
-## 🧠 AI Chatbot – Your Personal Web3 Assistant!
+## 🧠 AI Chatbot – Your Personal Web3 Assistant
 Need help? Don’t worry—Cryptify’s built-in AI chatbot is here! 🚀
 
 Our AI-powered help center provides:

@@ -124,8 +124,8 @@ Using **MetaMask SDK**, wallet connections are automated, ensuring a secure and 
 
 ### Installation & Setup  
 ```sh
-git clone https://github.com/dhruv457457/EduChain_Web-3-Project.git
-cd Cryptify
+git clone [https://github.com/dhruv457457/EduChain_Web-3-Project.git](https://github.com/dhruv457457/Cryptify.git)
+cd Cryptify-main
 cd frontend
 npm install
 npm run dev
@@ -143,6 +143,28 @@ It can be used for **hackathons, academic research, and engineering evaluation**
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open issues, submit PRs, and help improve Cryptify.
+
+---
+
+## 📜 Contract Addresses
+Below are the key contract addresses used in the Cryptify platform:
+
+**Fund Transfer Address:**
+0xf5646e10B042567d23753D587DDa16dc6E4061Ab
+
+This address is responsible for all fund transfer operations on the Cryptify platform.
+
+**Cryptify SWC Address:**
+0xfA6272595Eb32b1Fe6A6AbB6D74D1B1C49502913
+
+This address hosts the Cryptify smart contracts, which are SWC-compliant for enhanced security.
+
+**Username Registry Address:**
+0x0f87ea1419E33c57D5106762F34C971561A1162a
+
+This contract is used for managing and registering usernames within the Cryptify platform.
+
+These addresses are integral to the proper functioning of the Cryptify Web3 payment ecosystem.
 
 ---
 
